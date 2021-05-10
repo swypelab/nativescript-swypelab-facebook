@@ -605,8 +605,8 @@ The plugin allows to log analytics events. At the initialization of the applicat
 
 ```Typescript
 import * as app from "tns-core-modules/application";
-declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
 import * as fbAnalytics from 'nativescript-facebook';
+declare var UIResponder, UIApplicationDelegate;
 
 if (app.ios) {
     class MyDelegate extends UIResponder {
