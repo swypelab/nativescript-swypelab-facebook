@@ -604,10 +604,32 @@ The plugin allows to get the current access token, if any, via getCurrentAccessT
 The plugin allows to log analytics events. At the initialization of the application you need to init analytics:
 
 ```Typescript
-application.on(application.launchEvent, function (args) {
-    nsFacebook.init("{facebook_app_id}");
-    nsFacebook.initAnalytics();
-});
+import * as app from "tns-core-modules/application";
+declare var UIResponder, UIApplicationDelegate, BTAppSwitch;
+import * as fbAnalytics from 'nativescript-facebook';
+
+if (app.ios) {
+    class MyDelegate extends UIResponder {
+
+        public static ObjCProtocols = [UIApplicationDelegate];
+
+        applicationDidFinishLaunchingWithOptions(application, launchOptions): boolean {
+            try {
+                fbAnalytics.initAnalytics("ios", launchOptions);
+                return true;
+            } catch (error) {
+                console.log(error);
+            }
+
+            return false;
+        }
+    }
+    app.ios.delegate = MyDelegate;
+} else {
+    app.on(app.launchEvent, function (args) {
+    	fbAnalytics.initAnalytics("android");
+    });
+}
 ```
 
 Events logging:
