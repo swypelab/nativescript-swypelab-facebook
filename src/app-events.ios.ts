@@ -1,23 +1,26 @@
-let application = require("tns-core-modules/application");
-let iosApplication;
-let appEventsLogger;
-export function initAnalytics() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var application = require("tns-core-modules/application");
+var iosApplication;
+var appEventsLogger;
+function initAnalytics(os, launchOptions) {
     iosApplication = application.iosApplication;
+    if(os == 'ios'){
+        FBSDKApplicationDelegate.initializeSDK(launchOptions);
+    }
     FBSDKAppEvents.activateApp();
 }
-
-export function logEvent(name: string, parameters?: any) {
+exports.initAnalytics = initAnalytics;
+function logEvent(name, parameters) {
     if (name === undefined) {
         throw ("Argument 'name' is missing");
     }
-
     if (parameters === undefined) {
         FBSDKAppEvents.logEvent(name);
-    } else {
-        const parametersDictionary = new (NSDictionary as any)(
-            parameters.map(parameter => parameter.value),
-            parameters.map(parameter => parameter.key));
-
+    }
+    else {
+        var parametersDictionary = new NSDictionary(parameters.map(function (parameter) { return parameter.value; }), parameters.map(function (parameter) { return parameter.key; }));
         FBSDKAppEvents.logEventParameters(name, parametersDictionary);
     }
 }
+exports.logEvent = logEvent;
