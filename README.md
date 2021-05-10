@@ -1,13 +1,13 @@
 NativeScript : Facebook SDK ![apple](https://cdn3.iconfinder.com/data/icons/picons-social/57/16-apple-32.png) ![android](https://cdn4.iconfinder.com/data/icons/logos-3/228/android-32.png)
  =======
-[![npm](https://img.shields.io/npm/v/nativescript-facebook.svg)](https://www.npmjs.com/package/nativescript-facebook)
-[![npm](https://img.shields.io/npm/dm/nativescript-facebook.svg)](https://www.npmjs.com/package/nativescript-facebook)
-[![Build Status](https://travis-ci.org/NativeScript/nativescript-facebook.svg?branch=master)](https://travis-ci.org/NativeScript/nativescript-facebook)
+[![npm](https://img.shields.io/npm/v/nativescript-swypelab-facebook.svg)](https://www.npmjs.com/package/nativescript-swypelab-facebook)
+[![npm](https://img.shields.io/npm/dm/nativescript-swypelab-facebook.svg)](https://www.npmjs.com/package/nativescript-swypelab-facebook)
+[![Build Status](https://travis-ci.org/NativeScript/nativescript-swypelab-facebook.svg?branch=master)](https://travis-ci.org/NativeScript/nativescript-swypelab-facebook)
 -------
 
 [NativeScript](https://www.nativescript.org) plugin, wrapper of native [Facebook SDK](https://developers.facebook.com) for Android and iOS.
 
-![demo](https://github.com/nativescript-space/nativescript-facebook/blob/assets/demo.gif?raw=true)
+![demo](https://github.com/nativescript-space/nativescript-swypelab-facebook/blob/assets/demo.gif?raw=true)
 
 <!-- TOC depthFrom:2 -->
 
@@ -68,7 +68,7 @@ NativeScript : Facebook SDK ![apple](https://cdn3.iconfinder.com/data/icons/pico
 
 ## Installation
 ```
-tns plugin add nativescript-facebook
+tns plugin add nativescript-swypelab-facebook
 ```
 
 ## Configuration
@@ -114,12 +114,12 @@ Update Info.plist file (app/App_Resources/iOS/Info.plist) to contains `CFBundleU
 # Usage
 ## NativeScript Core
 ### Initialization 
-Call init of nativescript-facebook module on application launch.
+Call init of nativescript-swypelab-facebook module on application launch.
 
-[app.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/app.ts)
+[app.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/app.ts)
 ```TypeScript
 import * as application from 'application';
-import { init } from "nativescript-facebook";
+import { init } from "nativescript-swypelab-facebook";
 
 application.on(application.launchEvent, function (args) {
     init("{facebook_app_id}");
@@ -132,10 +132,10 @@ application.start({ moduleName: "login-page" });
 #### Facebook Login Button
 Add Facebook login button as simple as adding a Facebook:LoginButton tag in your view. Then you can define `login` event handler name. In the example below - `onLogin`.
 
-[login-page.xml](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/login-page.xml)
+[login-page.xml](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/login-page.xml)
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:Facebook="nativescript-facebook"
+      xmlns:Facebook="nativescript-swypelab-facebook"
   loaded="pageLoaded" class="page">
 
     ...
@@ -149,10 +149,10 @@ Add Facebook login button as simple as adding a Facebook:LoginButton tag in your
 
 Implement `onLogin` event handler in your view-model. It receives an argument from type `LoginEventData`. Currently `LoginEventData` object has 2 properties: error and loginResponse. loginResponse is an object that consists of 1 property - token that keeps the facebook access token which will be used for further authentications. Ideally we can add some other properties here in the future such as Facebook user id.
 
-[login-view-model.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/login-view-model.ts)
+[login-view-model.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/login-view-model.ts)
 ```TypeScript
 import { Observable } from 'data/observable';
-import { Facebook:LoginButton } from "nativescript-facebook";
+import { Facebook:LoginButton } from "nativescript-swypelab-facebook";
 
 export class LoginViewModel extends Observable {
 
@@ -169,10 +169,10 @@ export class LoginViewModel extends Observable {
 #### Custom Login Button
 Add a button and define a `tap` event handler in your login view. 
 
-[login-page.xml](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/login-page.xml)
+[login-page.xml](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/login-page.xml)
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:Facebook="nativescript-facebook"
+      xmlns:Facebook="nativescript-swypelab-facebook"
   loaded="pageLoaded" class="page">
 
     ...
@@ -189,10 +189,10 @@ In the view model implement the tap event handler in this case `login` method. I
 > **BEST PRACTICE**: 
 Import only the methods that you need instead of the entire file. It is crucial when you bundle your app with webpack.
 
-[login-view-model.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/login-view-model.ts)
+[login-view-model.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/login-view-model.ts)
 ```TypeScript
 import { Observable } from 'data/observable';
-import { login as fbLogin } from "nativescript-facebook";
+import { login as fbLogin } from "nativescript-swypelab-facebook";
 
 export class LoginViewModel extends Observable {
 
@@ -214,10 +214,10 @@ export class LoginViewModel extends Observable {
 
 Add Facebook logout button as simple as adding a Facebook:LoginButton tag in your view. Then you can define `logout` event handler name. In the example below - `onLogout`.
 
-[home-page.xml](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/home-page.xml)
+[home-page.xml](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/home-page.xml)
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:Facebook="nativescript-facebook"
+      xmlns:Facebook="nativescript-swypelab-facebook"
   loaded="pageLoaded" class="page">
 
     ...
@@ -231,7 +231,7 @@ Add Facebook logout button as simple as adding a Facebook:LoginButton tag in you
 
 Implement `onLogout` event handler in your view-model.
 
-[home-view-model.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/home-view-model.ts)
+[home-view-model.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/home-view-model.ts)
 ```TypeScript
 import { Observable } from 'data/observable';
 
@@ -248,10 +248,10 @@ export class HomeViewModel extends Observable {
 
 Add a button and define a `tap` event handler in your view. In this case - `logout`
 
-[home-page.xml](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/home-page.xml)
+[home-page.xml](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/home-page.xml)
 ```xml
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:Facebook="nativescript-facebook"
+      xmlns:Facebook="nativescript-swypelab-facebook"
   loaded="pageLoaded" class="page">
 
     ...
@@ -265,10 +265,10 @@ Add a button and define a `tap` event handler in your view. In this case - `logo
 
 In the view model implement the tap event handler in this case `logout` method. It just has to call the logout method that comes from the plugin. In the example below the logout method from the plugin is imported as fbLogout.
 
-[home-view-model.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/home-view-model.ts)
+[home-view-model.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/home-view-model.ts)
 ```TypeScript
 import { Observable } from 'data/observable';
-import { logout as fbLogout } from "nativescript-facebook";
+import { logout as fbLogout } from "nativescript-swypelab-facebook";
 
 export class LoginViewModel extends Observable {
 
@@ -303,7 +303,7 @@ import {
     showMessageDialog,
     canShareDialogShow,
     canMessageDialogShow
-} from 'nativescript-facebook';
+} from 'nativescript-swypelab-facebook';
 
 const linkContent = createShareLinksContent('https://www.nativescript.org',
             'Create Native iOS and Android Apps With JavaScript',
@@ -380,16 +380,16 @@ public canShowGenericMessageDialog = canMessageDialogShow(this.genericContent);
 
 ## NativeScript Angular
 ### Initialization
-Call init of nativescript-facebook module on application launch.
+Call init of nativescript-swypelab-facebook module on application launch.
 
-[app.module.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/app.module.ts)
+[app.module.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/app.module.ts)
 ```TypeScript
 ...
 import * as application from 'application';
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptFacebookModule } from "nativescript-facebook/angular";
+import { NativeScriptFacebookModule } from "nativescript-swypelab-facebook/angular";
 
-let nsFacebook = require('nativescript-facebook');
+let nsFacebook = require('nativescript-swypelab-facebook');
 
 application.on(application.launchEvent, function (args) {
     nsFacebook.init("{facebook_app_id}");
@@ -413,7 +413,7 @@ application.on(application.launchEvent, function (args) {
 
 Add Facebook login button as simple as adding a Facebook:LoginButton tag in your component html file. Then you can define `login` event handler name. In the example below - `onLogin`. Bare in mind the $event argument.
 
-[pages/login/login.component.html](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/login/login.component.html)
+[pages/login/login.component.html](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/login/login.component.html)
 ```html
 <StackLayout>
     <FacebookLoginButton (login)="onLogin($event)"></FacebookLoginButton>
@@ -422,10 +422,10 @@ Add Facebook login button as simple as adding a Facebook:LoginButton tag in your
 
 Implement `onLogin` event handler in your component. It receives an argument from type `LoginEventData`. Currently `LoginEventData` object has 2 properties: error and loginResponse. loginResponse is an object that consists of 1 property - token that keeps the facebook access token which will be used for further authentications. Ideally we can add some other properties here in the future such as Facebook user id.
 
-[pages/login/login.component.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/login/login.component.ts)
+[pages/login/login.component.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/login/login.component.ts)
 ```TypeScript
 import { Component } from "@angular/core";
-import * as Facebook from "nativescript-facebook";
+import * as Facebook from "nativescript-swypelab-facebook";
 
 @Component({
     selector: "login",
@@ -446,7 +446,7 @@ export class LoginComponent {
 
 Add a button and define a `tap` event handler in your login component html.
 
-[pages/login/login.component.html](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/login/login.component.html)
+[pages/login/login.component.html](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/login/login.component.html)
 ```html
 <StackLayout>
     <Button text="Login Button (custom)" (tap)="login()"></Button>
@@ -455,10 +455,10 @@ Add a button and define a `tap` event handler in your login component html.
 
 In the component implement the tap event handler in this case `login` method. It just has to call the login method that comes from the plugin.
 
-[pages/login/login.component.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/login/login.component.ts)
+[pages/login/login.component.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/login/login.component.ts)
 ```TypeScript
 import { Component } from "@angular/core";
-import * as Facebook from "nativescript-facebook";
+import * as Facebook from "nativescript-swypelab-facebook";
 
 @Component({
     selector: "login",
@@ -483,7 +483,7 @@ export class LoginComponent {
 
 Add Facebook logout button as simple as adding a Facebook:LoginButton tag in your component html file. Then you can define `logout` event handler name. In the example below - `onLogout`. Bare in mind the $event argument.
 
-[pages/home/home.component.html](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/home/home.component.html)
+[pages/home/home.component.html](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/home/home.component.html)
 ```html
 <StackLayout>
     <FacebookLoginButton (logout)="onLogout($event)"></FacebookLoginButton>
@@ -492,10 +492,10 @@ Add Facebook logout button as simple as adding a Facebook:LoginButton tag in you
 
 Implement `onLogout` event handler.
 
-[pages/home/home.component.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/home/home.component.ts)
+[pages/home/home.component.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/home/home.component.ts)
 ```TypeScript
 import { Component } from "@angular/core";
-import * as Facebook from "nativescript-facebook";
+import * as Facebook from "nativescript-swypelab-facebook";
 
 @Component({
     selector: "home",
@@ -516,7 +516,7 @@ export class HomeComponent {
 
 Add a button and define a `tap` event handler in your view. In this case - `logout`
 
-[pages/home/home.component.html](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/home/home.component.html)
+[pages/home/home.component.html](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/home/home.component.html)
 ```html
 <StackLayout>
     <Button text="Log out (custom)" (tap)="logout()"></Button>
@@ -525,10 +525,10 @@ Add a button and define a `tap` event handler in your view. In this case - `logo
 
 In the component implement the tap event handler in this case `logout` method. It just has to call the logout method that comes from the plugin. In the example below the logout method from the plugin is imported as fbLogout.
 
-[pages/home/home.component.ts](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/home/home.component.ts)
+[pages/home/home.component.ts](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/home/home.component.ts)
 ```TypeScript
 import { Component } from "@angular/core";
-import { logout as fbLogout } from "nativescript-facebook";
+import { logout as fbLogout } from "nativescript-swypelab-facebook";
 
 @Component({
     selector: "home",
@@ -605,7 +605,7 @@ The plugin allows to log analytics events. At the initialization of the applicat
 
 ```Typescript
 import * as app from "tns-core-modules/application";
-import * as fbAnalytics from 'nativescript-facebook';
+import * as fbAnalytics from 'nativescript-swypelab-facebook';
 declare var UIResponder, UIApplicationDelegate;
 
 if (app.ios) {
@@ -733,21 +733,21 @@ export class HomeComponent {
     }
 ```
 
-This sample is part of the demo apps and can be observed [here](https://github.com/NativeScript/nativescript-facebook/blob/master/demo/app/home-view-model.ts) for Nativescript Code and [here](https://github.com/NativeScript/nativescript-facebook/blob/master/demo-angular/app/pages/home/home.component.ts) for NativeScript + Angular.
+This sample is part of the demo apps and can be observed [here](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo/app/home-view-model.ts) for Nativescript Code and [here](https://github.com/NativeScript/nativescript-swypelab-facebook/blob/master/demo-angular/app/pages/home/home.component.ts) for NativeScript + Angular.
 
 
 ## Release notes
 
-Check out release notes [here](https://github.com/NativeScript/nativescript-facebook/releases)
+Check out release notes [here](https://github.com/NativeScript/nativescript-swypelab-facebook/releases)
 
 ## FAQ
-Check out our FAQ section [here](https://github.com/NativeScript/nativescript-facebook/wiki/FAQ).
+Check out our FAQ section [here](https://github.com/NativeScript/nativescript-swypelab-facebook/wiki/FAQ).
 
 ## Contribute
-We love PRs! Check out the [contributing guidelines](CONTRIBUTING.md). If you want to contribute, but you are not sure where to start - look for [issues labeled `help wanted`](https://github.com/NativeScript/nativescript-facebook/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
+We love PRs! Check out the [contributing guidelines](CONTRIBUTING.md). If you want to contribute, but you are not sure where to start - look for [issues labeled `help wanted`](https://github.com/NativeScript/nativescript-swypelab-facebook/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
 
   
 ## Get Help 
-Please, use [github issues](https://github.com/NativeScript/nativescript-facebook/issues) strictly for [reporting bugs](CONTRIBUTING.md#reporting-bugs) or [requesting features](CONTRIBUTING.md#requesting-new-features). For general questions and support, check out [Stack Overflow](https://stackoverflow.com/questions/tagged/nativescript) or ask our experts in [NativeScript community Slack channel](http://developer.telerik.com/wp-login.php?action=slack-invitation).
+Please, use [github issues](https://github.com/NativeScript/nativescript-swypelab-facebook/issues) strictly for [reporting bugs](CONTRIBUTING.md#reporting-bugs) or [requesting features](CONTRIBUTING.md#requesting-new-features). For general questions and support, check out [Stack Overflow](https://stackoverflow.com/questions/tagged/nativescript) or ask our experts in [NativeScript community Slack channel](http://developer.telerik.com/wp-login.php?action=slack-invitation).
   
-![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/nativescript-facebook?pixel) 
+![](https://ga-beacon.appspot.com/UA-111455-24/nativescript/nativescript-swypelab-facebook?pixel) 
