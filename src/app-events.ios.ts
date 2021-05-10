@@ -19,6 +19,7 @@ function logEvent(name, parameters) {
         FBSDKAppEvents.logEvent(name);
     }
     else {
+        // @ts-ignore
         var parametersDictionary = new NSDictionary(parameters.map(function (parameter) { return parameter.value; }), parameters.map(function (parameter) { return parameter.key; }));
         FBSDKAppEvents.logEventParameters(name, parametersDictionary);
     }
