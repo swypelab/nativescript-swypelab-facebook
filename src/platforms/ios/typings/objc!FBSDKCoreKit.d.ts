@@ -1000,6 +1000,8 @@ declare class FBSDKSettings extends NSObject {
 
 	static alloc(): FBSDKSettings; // inherited from NSObject
 
+	static setAdvertiserTrackingEnabled(advertiserTrackingEnabled: boolean): boolean;
+
 	static disableLoggingBehavior(loggingBehavior: string): void;
 
 	static enableLoggingBehavior(loggingBehavior: string): void;
@@ -1037,6 +1039,8 @@ declare class FBSDKSettings extends NSObject {
 	static loggingBehaviors: NSSet<string>;
 
 	static readonly sdkVersion: string;
+
+	static isAdvertiserTrackingEnabled: boolean;
 }
 
 declare class FBSDKTestUsersManager extends NSObject {

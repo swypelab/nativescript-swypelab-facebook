@@ -5,7 +5,7 @@ var iosApplication;
 var appEventsLogger;
 function initAnalytics(os, launchOptions) {
     iosApplication = application.iosApplication;
-    if(os == 'ios'){
+    if (os == 'ios') {
         FBSDKApplicationDelegate.initializeSDK(launchOptions);
     }
     FBSDKAppEvents.activateApp();
@@ -25,3 +25,12 @@ function logEvent(name, parameters) {
     }
 }
 exports.logEvent = logEvent;
+function setAdvertiserTrackingEnabled(advertiserTrackingEnabled) {
+    return FBSDKSettings.setAdvertiserTrackingEnabled(advertiserTrackingEnabled);
+}
+exports.setAdvertiserTrackingEnabled = setAdvertiserTrackingEnabled;
+function setAutoLogAppEventsEnabled(autoLogAppEventsEnabled) {
+    FBSDKSettings.autoLogAppEventsEnabled = autoLogAppEventsEnabled;
+    FBSDKSettings.advertiserIDCollectionEnabled = autoLogAppEventsEnabled;
+}
+exports.setAutoLogAppEventsEnabled = setAutoLogAppEventsEnabled;
