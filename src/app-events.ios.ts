@@ -6,9 +6,11 @@ var appEventsLogger;
 function initAnalytics(os, launchOptions) {
     iosApplication = application.iosApplication;
     if (os == 'ios') {
-        FBSDKApplicationDelegate.initializeSDK(launchOptions);
+        //FBSDKApplicationDelegate.initializeSDK(launchOptions);
+        FBAudienceNetworkAds.initialize();
     }
     FBSDKAppEvents.activateApp();
+    FBSDKApplicationDelegate.initializeSDK(launchOptions);
 }
 exports.initAnalytics = initAnalytics;
 function logEvent(name, parameters) {
@@ -19,18 +21,12 @@ function logEvent(name, parameters) {
         FBSDKAppEvents.logEvent(name);
     }
     else {
-        // @ts-ignore
         var parametersDictionary = new NSDictionary(parameters.map(function (parameter) { return parameter.value; }), parameters.map(function (parameter) { return parameter.key; }));
         FBSDKAppEvents.logEventParameters(name, parametersDictionary);
     }
 }
 exports.logEvent = logEvent;
-function setAdvertiserTrackingEnabled(advertiserTrackingEnabled) {
-    return FBSDKSettings.setAdvertiserTrackingEnabled(advertiserTrackingEnabled);
+function setAdvertiserTrackingEnabled(advertiserTrackingEnabled, launchOptions) {
+    return FBAdSettings.setAdvertiserTrackingEnabled(advertiserTrackingEnabled);
 }
 exports.setAdvertiserTrackingEnabled = setAdvertiserTrackingEnabled;
-function setAutoLogAppEventsEnabled(autoLogAppEventsEnabled) {
-    FBSDKSettings.autoLogAppEventsEnabled = autoLogAppEventsEnabled;
-    FBSDKSettings.advertiserIDCollectionEnabled = autoLogAppEventsEnabled;
-}
-exports.setAutoLogAppEventsEnabled = setAutoLogAppEventsEnabled;

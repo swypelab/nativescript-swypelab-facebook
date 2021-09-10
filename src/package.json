@@ -1,6 +1,6 @@
 {
     "name": "nativescript-swypelab-facebook",
-    "version": "9.0.3",
+    "version": "9.0.5",
     "description": "NativeScript plugin, wrapper of native Facebook SDK for Android and iOS.",
     "nativescript": {
         "platforms": {

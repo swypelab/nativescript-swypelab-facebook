@@ -579,6 +579,14 @@ declare class FBSDKAppLinkUtility extends NSObject {
 
 declare var FBSDKAppLinkVersion: string;
 
+declare class FBAudienceNetworkAds extends NSObject {
+	static initialize(settings: any, completionHandler: (p1: any) => void);
+}
+
+declare class FBAdSettings extends NSObject {
+	static setAdvertiserTrackingEnabled(advertiserTrackingEnabled: boolean): boolean;
+}
+
 declare class FBSDKApplicationDelegate extends NSObject {
 
 	static alloc(): FBSDKApplicationDelegate; // inherited from NSObject
